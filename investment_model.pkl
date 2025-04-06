@@ -1,0 +1,16 @@
+import joblib
+import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+
+# Ejemplo de datos de entrenamiento
+X_train = np.array([[60.0, 500000], [65.0, 600000], [70.0, 800000]])  # APY y TVL
+y_train = np.array([1, 0, 1])  # 1 = Buena inversión, 0 = Mala inversión
+
+# Crear un modelo de Random Forest
+model = RandomForestClassifier()
+
+# Entrenar el modelo
+model.fit(X_train, y_train)
+
+# Guardar el modelo entrenado en el archivo investment_model.pkl
+joblib.dump(model, 'investment_model.pkl')
